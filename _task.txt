@@ -1,0 +1,15 @@
+3. Shapes (JS)
+
+Testing: design patterns, defensive and general programming
+
+---
+
+Write a JS code package that calculates the volume of all of the following:
+
+Cylinder
+Cuboid
+Pyramid
+
+The pyramid base can be either triangular, square, rectangular or allow all as an option.
+
+Bonus point for implementing all bases.
