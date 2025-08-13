@@ -89,7 +89,7 @@ export default class Volume {
         // to know how to pass parameters in this.pyramid()
         // as well as clarify how to add new pyramid types
         switch (type) {
-            case this.PYRAMID_SHAPE_TRIANGILAR:
+            case this.PYRAMID_SHAPE_TRIANGULAR:
                 v = this.pyramidTriangular  (height, baseLength, complement);
                 break;
             case this.PYRAMID_SHAPE_SQUARE:
