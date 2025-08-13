@@ -14,53 +14,23 @@ The pyramid base can be either triangular, square, rectangular or allow all as a
 
 Bonus point for implementing all bases. */
 
-
-// Some validation helpers START
-
-function isNumber(arg) {
-    return !isNaN(parseFloat(arg)) && isFinite(arg);
-}
-
-function isString(arg) {
-    return (typeof arg === 'string' || arg instanceof String);
-}
-
-function assertNumber(arg) {
-    assertType(arg, 'number', isNumber);
-}
-
-function assertNumbers() {
-    [...arguments].map(arg => assertNumber(arg));
-}
-
-
-function assertString(arg) {
-    assertType(arg, 'string', isString);
-}
-
-function assertType(arg, expectedType, assertFn) {
-    if ( !assertFn(arg) ) {
-        throw new Error(`Argument must be of type '${expectedType}': value '${arg}' of type '${typeof arg}' is given`);
-    }
-}
-
-// Some validation helpers END
+import {assertNumbers, assertString} from './helpers.js';
 
 // TODO: upgrade to TypeScript
 // TODO: add decorator for easy validation of parameters ?
 // TODO: add decorator for Math.abs ?
-class Volume {
+export default class Volume {
 
     // TODO: upgrade to TypeScript
     // TODO: change to static const in TS
-    static PYRAMID_SHAPE_TRIANGILAR    = 'triangular';
+    static PYRAMID_SHAPE_TRIANGULAR    = 'triangular';
     static PYRAMID_SHAPE_SQUARE        = 'square';
     static PYRAMID_SHAPE_RECTANGULAR   = 'recrangular';
     static PYRAMID_SHAPE_PENTAGONAL    = 'pentagonal';
     static PYRAMID_SHAPE_HEXAGONAL     = 'hexagonal';
 
     static PYRAMID_SHAPES = [
-        Volume.PYRAMID_SHAPE_TRIANGILAR, 
+        Volume.PYRAMID_SHAPE_TRIANGULAR, 
         Volume.PYRAMID_SHAPE_SQUARE,
         Volume.PYRAMID_SHAPE_RECTANGULAR,
         Volume.PYRAMID_SHAPE_PENTAGONAL,
@@ -83,13 +53,13 @@ class Volume {
     /**
      * 
      * @param {number} height 
-     * @param {number} lengt 
+     * @param {number} length
      * @param {number} width 
      * 
      * @returns number
      */
-    static cuboid(height, lengt, width) {
-        assertNumbers(height, lengt, width);
+    static cuboid(height, length, width) {
+        assertNumbers(height, length, width);
         
         return Math.abs(height * length * width);
     }
@@ -213,5 +183,3 @@ class Volume {
         return Math.abs(height * baseLength * apothem);
     }
 }
-
-module.exports = Volume; 
