@@ -1,24 +1,24 @@
-const assert            = require('node:assert');
-const {describe, it}    = require('node:test');
+import assert from 'node:assert';
+import {describe, it} from 'node:test';
 
-const Volume            = require('./volume');
+import Volume from './volume.js';
 
 const precision = 8;
 
 describe('volume of a cylinder', (t) => {
     it('should work with consts', () => {
-        height = 1;
-        radius = 2;
+        const height = 1;
+        const radius = 2;
         assert.strictEqual(
-            Volume.cylinder(height, radius).toFixed(8), 
+            Volume.cylinder(height, radius).toFixed(precision), 
             (height * radius * radius * Math.PI).toFixed(precision)
         );
     });
 
     it('should work with randoms', () => {
         for (let i = 0; i < 10; i++) {
-            height = Math.random(100);
-            radius = Math.random(100);
+            let height = Math.random(100);
+            let radius = Math.random(100);
             assert.strictEqual(
                 Volume.cylinder(height, radius).toFixed(8), 
                 (height * radius * radius * Math.PI).toFixed(precision)
@@ -59,20 +59,20 @@ describe('volume of a cylinder', (t) => {
 
 describe('volume of a cuboid', (t) => {
     it('should work with consts', () => {
-        height = 2;
-        length = 1;
-        width  = 4;
+        const height = 2;
+        const length = 1;
+        const width  = 4;
         assert.strictEqual(
-            Volume.cuboid(height, length, width).toFixed(8), 
+            Volume.cuboid(height, length, width).toFixed(precision), 
             (height * length * width).toFixed(precision)
         );
     });
 
     it('should work with randoms', () => {
         for (let i = 0; i < 10; i++) {
-            height = Math.random(100);
-            length = Math.random(100);
-            width  = Math.random(100);
+            let height = Math.random(100);
+            let length = Math.random(100);
+            let width  = Math.random(100);
             assert.strictEqual(
                 Volume.cuboid(height, length, width).toFixed(8), 
                 (height * length * width).toFixed(precision)

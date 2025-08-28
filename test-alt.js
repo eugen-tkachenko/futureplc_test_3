@@ -1,7 +1,8 @@
-const assert            = require('node:assert');
-const {describe, it}    = require('node:test');
+import assert from 'node:assert';
+import {describe, it} from 'node:test';
 
-const {Cylinder, Cuboid, Pyramid, Volume} = require('./volume-alt');
+import {Cylinder, Cuboid, Pyramid, Volume} from './volume-alt.js';
+
 
 const precision = 8;
 
@@ -10,7 +11,7 @@ describe('volume of a cylinder', (t) => {
         const height = 1;
         const radius = 2;
 
-        cylinder = new Cylinder(height, radius);
+        let cylinder = new Cylinder(height, radius);
 
         assert.strictEqual(
             Volume.calculate(cylinder).toFixed(precision), 
@@ -23,7 +24,7 @@ describe('volume of a cylinder', (t) => {
             let height = Math.random(100);
             let radius = Math.random(100);
 
-            cylinder = new Cylinder(height, radius);
+            let cylinder = new Cylinder(height, radius);
 
             assert.strictEqual(
                 Volume.calculate(cylinder).toFixed(precision), 
@@ -65,11 +66,11 @@ describe('volume of a cylinder', (t) => {
 
 describe('volume of a cuboid', (t) => {
     it('should work with consts', () => {
-        height = 2;
-        length = 1;
-        width  = 4;
+        let height = 2;
+        let length = 1;
+        let width  = 4;
 
-        cuboid = new Cuboid(height, length, width);
+        let cuboid = new Cuboid(height, length, width);
 
         assert.strictEqual(
             Volume.calculate(cuboid).toFixed(precision), 
@@ -79,11 +80,11 @@ describe('volume of a cuboid', (t) => {
 
     it('should work with randoms', () => {
         for (let i = 0; i < 10; i++) {
-            height = Math.random(100);
-            length = Math.random(100);
-            width  = Math.random(100);
+            let height = Math.random(100);
+            let length = Math.random(100);
+            let width  = Math.random(100);
 
-            cuboid = new Cuboid(height, length, width);
+            let cuboid = new Cuboid(height, length, width);
 
             assert.strictEqual(
                 Volume.calculate(cuboid).toFixed(8), 

@@ -1,4 +1,4 @@
-const {Cylinder, Cuboid, Pyramid, Volume} = require('./volume-alt');
+import {Cylinder, Cuboid, Pyramid, Volume} from './volume-alt.js';
 
 console.log("Cylinder(1, 2) -> " + Volume.calculate(new Cylinder(1, 2)));
 console.log("Cuboid(1, 2, 3) -> " + Volume.calculate(new Cuboid(1, 2, 3)));
